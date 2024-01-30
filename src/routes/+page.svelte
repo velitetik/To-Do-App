@@ -18,9 +18,9 @@
 	<h1 class="mt-4 mb-4">Aufgabenmanagement-App</h1>
   
 	<form class="d-flex justify-content-between mb-4" action="?/create" method="POST">
-		<label for="taskTitle" class="form-label">Aufgabe:</label>
+		<label for="task" class="form-label">Aufgabe:</label>
 	  <div class="textarea mb-3">
-		<textarea class="form-control" name="title" bind:value={task} aria-label="With textarea" required></textarea>
+		<textarea class="form-control" name="title" bind:value={task} required></textarea>
 	  </div>
 	  <div class="mb-3">
 		<button type="submit" class="btn btn-primary">Speichern</button>

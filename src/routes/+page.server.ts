@@ -14,24 +14,33 @@ export const actions = {
 		const { title } = Object.fromEntries(await request.formData()) as {
 			title: string;
 		};
-
-		await prisma.task.create({
-			data: {
-				title: title,
-				status: false
-			}
-		});
+		try {
+			await prisma.task.create({
+				data: {
+					title: title,
+					status: false
+				}
+			});
+		} catch (err) {
+			console.error(err);
+		} finally {
+			await prisma.$disconnect();
+		}
 
 		throw redirect(303, '/');
 	},
 
 	delete: async ({ url }) => {
 		const id = url.searchParams.get('id');
-
-		await prisma.task.delete({
-			where: { id: Number(id) }
-		});
-
+		try {
+			await prisma.task.delete({
+				where: { id: Number(id) }
+			});
+		} catch (err) {
+			console.error(err);
+		} finally {
+			await prisma.$disconnect();
+		}
 		throw redirect(303, '/');
 	},
 
@@ -42,7 +51,7 @@ export const actions = {
 		const title = enteredData.get('title')?.toString();
 		const status = enteredData.get('status')?.toString();
 
-		if (enteredData) {
+		if (enteredData&&id) {
 			try {
 				await prisma.task.update({
 					where: {
@@ -55,6 +64,8 @@ export const actions = {
 				});
 			} catch (err) {
 				console.error(err);
+			} finally {
+				await prisma.$disconnect();
 			}
 		}
 		throw redirect(303, '/');
