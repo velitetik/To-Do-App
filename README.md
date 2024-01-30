@@ -13,6 +13,7 @@
   - Clone the repository.
   - Open it in a container environment.
   - Run `npm install` to install the required Node.js modules and files.
+  - For DB-Connection in `.env` put this: `DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres:latest?schema=public"`
   - Execute `npm run dev` to start the app.
 
 - **Features:**

@@ -51,7 +51,7 @@ export const actions = {
 		const title = enteredData.get('title')?.toString();
 		const status = enteredData.get('status')?.toString();
 
-		if (enteredData&&id) {
+		if (enteredData && id) {
 			try {
 				await prisma.task.update({
 					where: {
