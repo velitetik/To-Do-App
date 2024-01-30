@@ -24,3 +24,5 @@
   - PostgreSQL is automatically configured by the devcontainer extension, though it may be considered overkill for a small app.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+![To-do](https://github.com/velitetik/To-Do-App/assets/113057734/5ff2daaf-db6d-43a7-8ad3-b4f561a017d0)
